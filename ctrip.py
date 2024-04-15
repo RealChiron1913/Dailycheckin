@@ -61,8 +61,7 @@ async def ctripSign():
     
     logger.info(result)
 
-
-    await pushplus("携程签到", message)
+    pushplus("携程签到", message)
 
     return result
 
