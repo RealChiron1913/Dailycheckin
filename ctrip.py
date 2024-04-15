@@ -1,3 +1,5 @@
+# cron 1 0 0 * * * ctrip.py
+
 import asyncio
 import json
 from diskcache import Cache
