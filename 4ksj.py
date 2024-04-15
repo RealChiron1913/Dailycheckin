@@ -8,13 +8,16 @@ import time
 from urllib.parse import urlencode
 from urllib.parse import quote
 import os
-from pushplus import plusplus
+
+
 
 # global variables
 
 uname = os.getenv("USER_4KSJ")            # username，需要修改成自己的登录用户名！！！！！！！！！！！！！！！！！！！！
 upassword = os.getenv("PASSWORD_4KSJ")         # password，需要修改成自己的密码！！！！！！！！！！！！！！！！！！！！！！！
 print(uname)
+plusplus_token= os.getenv("PUSHPLUS")            #plusplus推送加的token，如需通知功能，可填写此项；如果不需要通知，可以留空''
+
 print(upassword)
 loginhash = ''
 formhash = ''
@@ -31,6 +34,13 @@ headers = {'Host':'www.4ksj.com',
 'Sec-Fetch-User':'?1',
 'Te':'trailers'
 }
+def plusplus(title: str, content: str) -> None:
+    if plusplus_token == '':
+        print("plusplus推送加 服务的 token 未设置!!\n取消推送")
+        return
+    url = 'http://www.pushplus.plus/send?token='+plusplus_token+'&title='+quote(title)+'&content='+quote(content)
+    response = r.get(url).text
+    print("plusplus推送加 推送消息,并返回："+response)
 
 
 #从个人空间页面获取当前K值
