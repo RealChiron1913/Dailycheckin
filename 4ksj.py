@@ -33,28 +33,6 @@ headers = {'Host':'www.4ksj.com',
 'Te':'trailers'
 }
 
-#以下是使用server酱通知的函数（抄来的，哈哈）
-# def serverJ(title: str, content: str) -> None:
-#     """
-#     通过 server酱 推送消息。
-#     """
-#     if sever_jiang_send_key == '':
-#         print("serverJ 服务的 send_KEY 未设置!!\n取消推送")
-#         return
-#     print("serverJ 服务启动")
-
-#     data = {"text": title, "desp": content.replace("\n", "\n\n")}
-#     if sever_jiang_send_key.find("SCT") != -1:
-#         url = f'https://sctapi.ftqq.com/{sever_jiang_send_key}.send'
-#     else:
-#         url = f'https://sc.ftqq.com/{sever_jiang_send_key}.send'
-#     response = r.post(url, data=data).json()
-
-#     if response.get("errno") == 0 or response.get("code") == 0:
-#         print("serverJ 推送成功！")
-#     else:
-#         print(f'serverJ 推送失败！错误码：{response["message"]}')
-        
 #以下是使用plusplus推送加通知的函数       
 def plusplus(title: str, content: str) -> None:
     if plusplus_token == '':
