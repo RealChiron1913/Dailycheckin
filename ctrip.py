@@ -10,11 +10,11 @@ from httpx import AsyncClient
 from loguru import logger
 from time import time
 import os
+from pushplus import pushplus
 
 
 cache = Cache("/cache")
 ctrip = os.getenv('CTRIP', '')
-
 
 # 携程签到
 async def ctripSign():
@@ -46,6 +46,9 @@ async def ctripSign():
     cache.set(f'ctrip_{ctrip}', ctrip)
     
     logger.info(result)
+
+
+    await pushplus("携程签到", message)
     return result
 
 async def request(method: str, url: str, params: Dict[str, str], data: Union[str, Dict[str, str]], cookies: Dict[str, str]):
