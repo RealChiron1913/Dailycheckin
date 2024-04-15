@@ -34,7 +34,7 @@ headers = {'Host':'www.4ksj.com',
 'Sec-Fetch-User':'?1',
 'Te':'trailers'
 }
-def plusplus(title: str, content: str) -> None:
+def pushplus(title: str, content: str) -> None:
     if plusplus_token == '':
         print("plusplus推送加 服务的 token 未设置!!\n取消推送")
         return
@@ -167,8 +167,8 @@ if __name__ == '__main__':
             content = result + '\n' + uname+'本次获得K币: ' + str(int(k_num2)-int(k_num1)) + '个\n'+'累计K币: ' + str(int(k_num2)) + '个'
             #server酱通知
             # serverJ(title,content)
-            #plusplus推送加的通知
-            plusplus(title,content)
+            #pushplus
+            pushplus(title,content)
             
             
             print('***************4K世界签到：结果统计***************')

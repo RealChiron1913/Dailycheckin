@@ -21,7 +21,7 @@ plusplus_token= os.getenv("PUSHPLUS")            #plusplus推送加的token，�
 r = httpx.Client(http2=True, timeout=60)
 
 
-def plusplus(title: str, content: str) -> None:
+def pushplus(title: str, content: str) -> None:
     if plusplus_token == '':
         print("plusplus推送加 服务的 token 未设置!!\n取消推送")
         return
@@ -63,6 +63,7 @@ async def ctripSign():
 
 
     await pushplus("携程签到", message)
+
     return result
 
 async def request(method: str, url: str, params: Dict[str, str], data: Union[str, Dict[str, str]], cookies: Dict[str, str]):
